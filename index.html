@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free local preflight for Manifest V3 extensions before the Chrome Web Store, Firefox Add-ons and Microsoft Edge Add-ons review. Every check maps to an official violation ID or policy: Purple Potassium, Blue Argon, gecko id, data_collection_permissions, Edge policy 1.1.2.">
+<title>Chrome Extension Compliance Pack</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./">C<span>◆</span>P</a><a href="#checks">Checks</a><a href="#pricing">Pack</a><a href="terms.html">Terms</a></header>
+<main>
+<section class="hero">
+  <p class="eyebrow">MANIFEST V3 · LOCAL-FIRST · NO UPLOADS</p>
+  <h1>Fix Chrome Web Store rejections before you submit.</h1>
+  <p class="lede">Open your extension ZIP in this page and get a report in seconds. Every finding is tagged with the official violation ID the review uses: Purple Potassium, Blue Argon, Yellow Zinc, Purple Lithium and others. Optional checks for Firefox Add-ons and Microsoft Edge Add-ons. Free, and no code leaves your browser.</p>
+  <div class="actions"><label class="button primary" for="zip">Choose extension ZIP<input id="zip" type="file" accept=".zip,application/zip" hidden></label><button class="button secondary" id="demo-bad">Try a rejected extension</button><button class="button secondary" id="demo">Try the safe fixture</button></div>
+  <p class="micro">No account. No backend. No file upload. No approval guarantee.</p>
+</section>
+
+<section class="tool" id="tool">
+  <div class="tool-head"><div><p class="eyebrow">LOCAL ANALYSER · <span id="rule-count">27</span> CHECKS</p><h2 id="manifest-name">No extension loaded</h2><p id="manifest-meta">Choose a ZIP to begin</p></div><div id="summary"></div></div>
+  <div class="stores"><span class="micro">Also check for:</span><label><input type="checkbox" id="store-firefox"> Firefox Add-ons</label><label><input type="checkbox" id="store-edge"> Microsoft Edge Add-ons</label></div>
+  <p id="notice" class="notice">The analyser reads the manifest and text files only. It never executes extension code.</p>
+  <div id="results-card" hidden>
+    <div id="results"></div>
+    <div class="export"><button class="button secondary" id="export-md">Download Markdown</button><button class="button secondary" id="export-html">Download HTML</button></div>
+    <h3>Permission justification prompts</h3>
+    <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Type</th><th>Prompt</th></tr></thead><tbody id="permissions"></tbody></table></div>
+  </div>
+  <p class="micro" id="rules-meta"></p>
+</section>
+
+<section id="checks" class="split">
+  <div><p class="eyebrow">WHAT IT CHECKS</p><h2>The rejection reasons you can catch from the package.</h2></div>
+  <div class="cards">
+    <article><b>Purple Potassium</b><p>Permissions declared but never called in the code, and the misunderstood ones the review flags: activeTab or tabs next to broad host access, tabs without reading URLs or titles, cookies or storage used only for document.cookie or localStorage.</p></article>
+    <article><b>Blue Argon · Red Titanium</b><p>Remote scripts, eval and remote imports; obfuscator output and encoded payloads. Minified code stays allowed.</p></article>
+    <article><b>Yellow Magnesium · Yellow Zinc</b><p>Packaging errors: manifest not at the ZIP root, missing icons, popup, options, side panel, content script or service worker files.</p></article>
+    <article><b>Purple Lithium · Nickel · Copper</b><p>Permissions that reach user data and therefore need a privacy policy and disclosure; network calls to plain HTTP or WS endpoints.</p></article>
+    <article><b>Firefox Add-ons</b><p>Missing gecko id (no signing for Manifest V3), missing or invalid data_collection_permissions (required for new submissions since 3 November 2025), service-worker-only background, bundled code that needs a source archive.</p></article>
+    <article><b>Microsoft Edge Add-ons</b><p>Names and descriptions that mention other browsers (policy 1.1.2), plus the same permission, privacy and obfuscation checks.</p></article>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div>
+    <p class="eyebrow">THE PACK · €29 ONE-TIME</p>
+    <h2>Everything you need to answer the review.</h2>
+    <ul class="list">
+      <li><b>Rejection playbook</b> for 12 Chrome Web Store violation IDs, plus Firefox Add-ons and Edge Add-ons sections: what triggers each rejection, how to fix it, and what to write when you resubmit or appeal.</li>
+      <li><b>Permission justifications</b> for more than 40 permissions, ready to adapt for the Privacy practices tab.</li>
+      <li><b>Templates</b>: privacy policy, single purpose statement, data use disclosure and a Privacy practices checklist.</li>
+      <li><b>Offline command line tool</b> with the same checks for a ZIP or a folder, exit codes for continuous integration and a GitHub Actions example.</li>
+      <li><b>Offline copy</b> of this analyser.</li>
+    </ul>
+  </div>
+  <div class="price-card">
+    <strong>€29</strong><span>one-time · digital delivery by email</span>
+    <a class="button primary" data-order href="mailto:info@ecobubble.it">Order by email</a>
+    <small>Write to <b>info@ecobubble.it</b>. We reply within one business day with SEPA bank transfer details, and send the pack by email once the payment is credited. An invoice is issued for every order.</small>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Important boundaries</h2>
+  <details open><summary>Does this guarantee approval?</summary><p>No. Chrome Web Store decisions depend on the full extension, the listing, the policies and the review. This is a deterministic preparation aid.</p></details>
+  <details><summary>Where do the violation IDs come from?</summary><p>From the official <a href="https://developer.chrome.com/docs/webstore/troubleshooting" target="_blank" rel="noopener">Chrome Web Store troubleshooting page</a>. Each finding links the section it relates to, and the date of the last check is shown under the analyser.</p></details>
+  <details><summary>Is this malware scanning or legal advice?</summary><p>No. It is not certified malware scanning, and the templates in the pack are documents to complete, not legal advice.</p></details>
+  <details><summary>Where does my code go?</summary><p>Nowhere. The ZIP is read in the browser and reports are generated locally. There is no analytics, cookie, login, database or backend.</p></details>
+  <details><summary>Can I pay by card?</summary><p>Not yet. Payment is by SEPA bank transfer; details arrive in our reply to your order email.</p></details>
+</section>
+</main>
+<footer>
+  <p>Chrome Extension Compliance Pack is sold by <b>ECOBUBBLE S.R.L.</b> · Via del Casale Giuliani 71, Roma, Italy · VAT IT15109141000 · REA RM-1568443, Registro Imprese di Roma · <a href="mailto:info@ecobubble.it">info@ecobubble.it</a> · <a href="terms.html">Terms and privacy</a></p>
+  <p>Not affiliated with or endorsed by Google. Chrome and Chrome Web Store are trademarks of Google LLC.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
